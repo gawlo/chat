@@ -1,0 +1,13 @@
+= Stork
+:author: Tigase Team <team@tigase.net>
+
+:toc:
+:numbered:
+:website: http://tigase.net
+
+
+include::text/Tigase_Tigase_Android_Messenger-User_guide.asciidoc[]
+
+include::text/Account_Management.asciidoc[]
+
+include::text/Advanced_settings.asciidoc[]

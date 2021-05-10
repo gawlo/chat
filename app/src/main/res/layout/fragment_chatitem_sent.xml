@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Stork
+  ~ Copyright (C) 2019 Tigase, Inc. (office@tigase.com)
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as published by
+  ~ the Free Software Foundation, version 3 of the License.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program. Look for COPYING file in the top folder.
+  ~ If not, see http://www.gnu.org/licenses/.
+  -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="3dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="3dp">
+
+    <TextView
+            android:id="@+id/id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:visibility="gone"/>
+
+    <LinearLayout
+            android:id="@+id/message_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/message_bubble_sent"
+            android:minWidth="150sp"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
+                android:autoLink="web"
+                android:textColor="#ff000000"
+                android:textSize="15sp"/>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+            <ImageView android:id="@+id/encryption_indicator" android:layout_width="16dp" android:layout_height="16dp"
+                       android:visibility="gone"
+                       android:src="@drawable/ic_encryprted_message"/>
+
+            <TextView
+                    android:id="@+id/chat_timestamp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:textColor="#bdbdbd"
+                    android:textSize="12sp"/>
+
+            <ImageView
+                    android:id="@+id/chat_delivery_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:tint="#bdbdbd"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

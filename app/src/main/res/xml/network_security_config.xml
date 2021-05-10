@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+    <domain-config>
+        <domain includeSubdomains="true">xmppsrv.orange-bissau.com</domain>
+        <domain includeSubdomains="true">197.214.86.130</domain>
+    </domain-config>
+</network-security-config>

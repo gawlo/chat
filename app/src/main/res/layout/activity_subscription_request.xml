@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center_horizontal"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/activity_vertical_margin"
+              android:paddingLeft="@dimen/activity_horizontal_margin"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:paddingTop="@dimen/activity_vertical_margin"
+              tools:context=".roster.contact.EditContactActivity">
+
+    <ProgressBar
+            android:id="@+id/contact_progress"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_bakcground"
+        android:id="@+id/header"
+        android:layout_alignParentTop="true">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/contact_subscription_info2"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/textView"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="#FFF"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+            <Button
+                android:id="@+id/contact_add_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFF"
+                android:background="@color/colorPrimary"
+                android:text="@string/contact_allow_button2"/>
+
+            <Button
+                android:id="@+id/contact_reject_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/contact_reject_button2"
+                android:background="#F66C35"
+                android:layout_marginTop="20dp"
+                android:textColor="#FFF"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/footer"
+        android:layout_below="@+id/header"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10px"
+                app:cardCornerRadius="0px"
+                app:cardElevation="20px">
+                <RelativeLayout
+                    android:id="@+id/user_avatar_form"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+            <com.github.abdularis.civ.StorkAvatarView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:src="@drawable/user_avatar"
+                android:id="@+id/user_avatar"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:id="@+id/contact_display_name_wrap"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/user_avatar">
+
+                <EditText
+                    android:id="@+id/contact_display_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/contact_name"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:imeActionLabel="@string/contact_add_button"
+                    android:imeOptions="actionDone"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/contact_xmppid_wrap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contact_display_name_wrap"
+                android:layout_alignStart="@+id/contact_display_name_wrap">
+
+                <EditText
+                    android:id="@+id/contact_xmppid"
+                    android:editable="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/contact_xmppid"
+                    android:inputType="textEmailAddress|none"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:imeActionLabel="@string/contact_add_button"
+                    android:imeOptions="actionDone"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+
+     <RelativeLayout
+                android:id="@+id/subscription_request_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    android:layout_below="@+id/user_avatar_form"
+                    android:id="@+id/user_details_form"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <EditText
+                            android:id="@+id/contact_vcard_name"
+                            android:hint="@string/contact_vcard_fullname2"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                        android:layout_marginLeft="20dp"/>
+                </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:visibility="gone">
+                <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <EditText
+                            android:id="@+id/contact_vcard_nickname"
+                            android:hint="@string/contact_vcard_nickname2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                        android:layout_marginLeft="20dp"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <EditText
+                            android:id="@+id/contact_vcard_phone"
+                            android:hint="@string/contact_vcard_phone2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                        android:layout_marginLeft="20dp"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <EditText
+                            android:id="@+id/contact_vcard_work"
+                            android:hint="@string/contact_vcard_work2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                        android:layout_marginLeft="20dp"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+</RelativeLayout>

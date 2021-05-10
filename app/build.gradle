@@ -1,0 +1,142 @@
+apply plugin: 'com.android.application'
+
+configurations {
+	playstoreImplementation
+	freeImplementation
+}
+
+android {
+	compileSdkVersion 28
+//	buildToolsVersion "27.0.3"
+
+	defaultConfig {
+		applicationId "org.tigase.messenger.phone.pro"
+		minSdkVersion 19
+		targetSdkVersion 28
+		versionCode 90
+		versionName "3.0.27"
+		multiDexEnabled true
+
+//		jackOptions {
+//			enabled true
+//		}
+	}
+	signingConfigs {
+		release {
+			storeFile file(System.getProperty("user.home") + "/android-release.keystore")
+			keyAlias ''
+			storePassword ''
+			keyPassword ''
+		}
+	}
+
+	buildTypes {
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+			signingConfig signingConfigs.release
+		}
+		debug {
+			debuggable true
+			versionNameSuffix " Debug"
+		}
+	}
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_1_8
+		targetCompatibility JavaVersion.VERSION_1_8
+	}
+	lintOptions {
+		abortOnError false
+	}
+
+	flavorDimensions("distribution")
+
+	productFlavors {
+		free {
+			dimension "distribution"
+			versionNameSuffix ".f"
+		}
+		playstore {
+			dimension "distribution"
+			versionNameSuffix ".p"
+		}
+	}
+
+	sourceSets {
+		free {
+			java {
+				srcDirs 'src/free/java'
+			}
+		}
+		playstore {
+			java {
+				srcDirs 'src/playstore/java'
+			}
+		}
+	}
+
+}
+allprojects {
+	repositories {
+		maven { url 'https://jitpack.io' }
+	}
+}
+
+dependencies {
+	implementation fileTree(include: ['*.jar'], dir: 'libs')
+	implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+	//implementation 'com.google.android.material:material:1.2.1'
+	testImplementation 'junit:junit:4.12'
+	implementation 'tigase:jaxmpp-android:3.3.0'
+	implementation 'tigase:jaxmpp-muc:3.3.0'
+	implementation 'tigase:jaxmpp-chat:3.3.0'
+	implementation 'tigase:jaxmpp-deliveryreceipts:3.3.0'
+	implementation 'tigase:jaxmpp-presence:3.3.0'
+	implementation 'tigase:jaxmpp-roster:3.3.0'
+	implementation 'tigase:jaxmpp-registration:3.3.0'
+	implementation 'tigase:jaxmpp-vcard:3.3.0'
+	implementation 'tigase:jaxmpp-filetransfer:3.3.0'
+	implementation 'tigase:jaxmpp-socks5:3.3.0'
+	implementation 'tigase:jaxmpp-pubsub:3.3.0'
+	implementation 'tigase:jaxmpp-im:3.3.0'
+	implementation 'tigase:jaxmpp-core:3.3.0'
+	implementation 'tigase:jaxmpp-adhoc:3.3.0'
+	implementation 'tigase:jaxmpp-push:3.3.0'
+	implementation 'tigase:jaxmpp-xep0136:3.3.0'
+	implementation 'tigase:jaxmpp-mam:3.3.0'
+	implementation 'tigase:jaxmpp-httpfileupload:3.3.0'
+	implementation 'tigase:jaxmpp-omemo:3.3.0'
+	implementation 'com.android.support:appcompat-v7:28.0.0'
+	implementation 'com.android.support:design:28.0.0'
+	implementation 'com.android.support:support-v4:28.0.0'
+	implementation 'com.android.support:recyclerview-v7:28.0.0'
+	implementation 'com.bignerdranch.android:recyclerview-multiselect:0.2'
+	implementation 'me.leolin:ShortcutBadger:1.1.22@aar'
+	implementation 'org.webrtc:google-webrtc:1.0.26131'
+	implementation 'com.android.support:multidex:1.0.3'
+	playstoreImplementation('com.google.firebase:firebase-messaging:17.5.0')
+	implementation 'org.jetbrains:annotations:15.0'
+	//implementation "androidx.cardview:cardview:1.0.0"
+	implementation 'com.android.support:cardview-v7:28.0.0'
+	implementation 'com.hbb20:ccp:2.2.2'
+	implementation 'com.github.GoodieBag:Pinview:v1.4'
+	implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+	implementation 'com.google.code.gson:gson:2.6.2'
+	implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+}
+
+afterEvaluate {project ->
+	def propsFile = rootProject.file('keystore.properties')
+	def configName = 'release'
+
+	if (propsFile.exists() && android.signingConfigs.hasProperty(configName)) {
+		def props = new Properties()
+		props.load(new FileInputStream(propsFile))
+		android.signingConfigs[configName].storeFile = file(props['storeFile'])
+		android.signingConfigs[configName].storePassword = props['storePassword']
+		android.signingConfigs[configName].keyAlias = props['keyAlias']
+		android.signingConfigs[configName].keyPassword = props['keyPassword']
+	}
+}
+
+apply plugin: 'com.google.gms.google-services'

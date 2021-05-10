@@ -1,0 +1,22 @@
+<!--
+  ~ Stork
+  ~ Copyright (C) 2019 Tigase, Inc. (office@tigase.com)
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as published by
+  ~ the Free Software Foundation, version 3 of the License.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program. Look for COPYING file in the top folder.
+  ~ If not, see http://www.gnu.org/licenses/.
+  -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="24dp"
+        android:viewportHeight="612.074" android:viewportWidth="612.074" android:width="24dp">
+    <path android:fillColor="#FFFFFFFF"
+          android:pathData="M306,0C137,0 0,137 0,306s137,306 306,306s306,-137 306,-306S475.1,0 306,0zM306,582.4c-152.2,0 -276.4,-124.2 -276.4,-276.4S153.8,29.7 306,29.7s276.4,124.2 276.4,276.4S458.2,582.4 306,582.4zM425.4,315.7c5.6,5.6 5.6,15.2 0,20.8l-109,109.7c-0.8,0.8 -1.6,1.6 -2.4,1.6l-0.8,0.8c-0.8,0 -0.8,0.8 -1.6,0.8c-0.8,0 -0.8,0 -1.6,0.8c-0.8,0 -0.8,0 -1.6,0c-0.8,0 -1.6,0 -3.2,0c-0.8,0 -1.6,0 -3.2,0c-0.8,0 -0.8,0 -1.6,0c-0.8,0 -0.8,0 -1.6,-0.8c-0.8,0 -0.8,-0.8 -1.6,-0.8c0,0 -0.8,0 -0.8,-0.8c-0.8,-0.8 -1.6,-0.8 -2.4,-1.6L185.9,335.7c-5.6,-5.6 -5.6,-15.2 0,-20.8s15.2,-5.6 20.8,0l84.9,84.9V165c0,-8 6.4,-14.4 14.4,-14.4s14.4,6.4 14.4,14.4v234.7l83.4,-83.3C410.2,310 419.8,310 425.4,315.7z"/>
+</vector>

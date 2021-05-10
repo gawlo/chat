@@ -1,0 +1,15 @@
+*.iml
+/.idea
+.gradle
+/local.properties
+/keystore.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/app/build
+/documentation/build
+/bks-creator/build
+/captures
+docs
+/app/release

@@ -1,0 +1,5 @@
+rootProject.name='Stork'
+
+include ':app'
+include ':documentation'
+include ':bks-creator'
